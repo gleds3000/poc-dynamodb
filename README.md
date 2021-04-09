@@ -66,3 +66,26 @@ aws dynamodb query  \
 info.rating --- usado/chamado da mesma forma em qq json.  
 
 
+
+===============
+# 8001 aws dynamodb query
+--endpoint-url http://localhost:8001
+--table-name Movies
+--key-condition-expression "#yr = :yyyy"
+--expression-attribute-names '{"#yr": "year"}'
+--expression-attribute-values '{ ":yyyy":{"N":"2010"}}'
+--filter-expression 'info.rating > :rating'
+--expression-attribute-values '{ ":yyyy":{"N":"2010"}, ":rating": { "N": "8.5" } }'
+
+#PADRAO
+
+aws dynamodb query
+--endpoint-url http://localhost:8000
+--table-name Movies
+--key-condition-expression "#yr = :yyyy"
+--expression-attribute-names '{"#yr": "year"}'
+--expression-attribute-values '{ ":yyyy":{"N":"2010"}}'
+--filter-expression 'info.rating > :rating'
+--expression-attribute-values '{ ":yyyy":{"N":"2010"}, ":rating": { "N": "8.5" } }'
+
+
